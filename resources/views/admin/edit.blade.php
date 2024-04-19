@@ -5,7 +5,7 @@
     
     <h1>Modifica progetto</h1>
 
-    <form action="{{route('admin.update', $project->id)}}" method="POST">
+    <form action="{{route('admin.projects.update', $project->id)}}" method="POST">
         @csrf
         @method('PUT')
         

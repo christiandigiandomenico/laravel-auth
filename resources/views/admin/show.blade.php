@@ -8,15 +8,15 @@
     
         {{-- @dump($comic) --}}
     
-                <img src="{{project->thumbnail}}" alt="{{project->name}}">
+                <img src="{{$project->thumbnail}}" alt="{{$project->name}}">
 
-                <p>{{project->description}}</p>
+                <p>{{$project->description}}</p>
 
-                <p>{{project->technologies}}</p>
+                <p>{{$project->technologies}}</p>
 
-                <a href="">{{project->link}}</a>
+                <a href="">{{$project->link}}</a>
     
-                <a href="{{route('admin.edit', $project->id)}}" class="btn btn-secondary"><i class="fa-solid fa-pencil"></i> Modifica Progetto</a>
+                <a href="{{route('admin.projects.edit', $project->id)}}" class="btn btn-secondary"><i class="fa-solid fa-pencil"></i> Modifica Progetto</a>
     
                 <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#deleteModal">
                     <i class="fa-solid fa-trash"></i> Elimina
@@ -39,7 +39,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-                <form action="{{route('comics.destroy', $project->id)}}" method="POST">
+                <form action="{{route('admin.projects.destroy', $project->id)}}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button class="btn btn-danger"> Elimina</button>

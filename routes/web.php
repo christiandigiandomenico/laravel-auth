@@ -39,6 +39,6 @@ Route::middleware(['auth', 'verified'])
         function () {
 
             Route::get('/', [DashboardController::class, 'index'])->name('index');
-            Route::resource('/', ProjectController::class);
+            Route::resource('/projects', ProjectController::class);
         }
     );

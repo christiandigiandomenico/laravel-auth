@@ -13,5 +13,7 @@ class ProjectSeeder extends Seeder
      */
     public function run(): void
     {
+
+        $projects = config('projects');
     }
 }
