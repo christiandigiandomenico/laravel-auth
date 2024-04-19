@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::get('/dashboard', function () {
@@ -38,5 +39,6 @@ Route::middleware(['auth', 'verified'])
         function () {
 
             Route::get('/', [DashboardController::class, 'index'])->name('index');
+            Route::resource('/', ProjectController::class);
         }
     );
