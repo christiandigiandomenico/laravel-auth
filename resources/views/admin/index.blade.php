@@ -6,7 +6,11 @@
     <h1>Amministrazione</h1>
 
     <a href="{{route('admin.create')}}" class="btn btn-primary">Aggiungi un progetto</a>
-    
+
+    @foreach($projects as $project)
+    <h4>{{$project->name}}</h4>
+    <a href="{{route('admin.show', $project->id)}}" class="btn btn-primary">Mostra progetto</a>
+    @endforeach
 
 </div>
 @endsection
