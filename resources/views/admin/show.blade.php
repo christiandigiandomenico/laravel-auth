@@ -7,10 +7,10 @@
         <h1 class="mb-5">{{$project->name}}</h1>
     
         {{-- @dump($comic) --}}
-    
-                <img src="{{$project->thumbnail}}" alt="{{$project->name}}">
 
                 <p>{{$project->description}}</p>
+
+                <img src="{{asset('storage/' . $project->cover_image)}}" alt="Immagine Progetto">
 
                 <p>{{$project->technologies}}</p>
 

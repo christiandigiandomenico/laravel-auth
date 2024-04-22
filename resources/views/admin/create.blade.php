@@ -5,7 +5,7 @@
     
     <h1>Crea un nuovo progetto</h1>
 
-    <form action="{{route('admin.store')}}" method="POST">
+    <form action="{{route('admin.projects.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         
         <div class="mb-3">
@@ -27,8 +27,8 @@
             @enderror
         </div>
         <div class="mb-3">
-            <label for="thumbnail" class="form-label">Immagine progetto</label>
-            <input type="text" class="form-control @error('thumbnail') is-invalid  @enderror" name="thumbnail" id="thumbnail"  value="{{old('thumbnail')}}">
+            <label for="thumbnail" class="form-label">Thumbnail</label>
+            <textarea type="text" class="form-control @error('thumbnail') is-invalid  @enderror" name="thumbnail" id="thumbnail" >{{old('thumbnail')}}</textarea>
             @error('thumbnail')
             <div class="invalid-feedback">
                 {{$message}}
@@ -48,6 +48,16 @@
             <label for="link" class="form-label">Link progetto</label>
             <input type="text" class="form-control @error('link') is-invalid  @enderror" name="link" id="link"  value="{{old('link')}}">
             @error('link')
+            <div class="invalid-feedback">
+                {{$message}}
+            </div>
+            @enderror
+        </div>
+
+        <div class="mb-3">
+            <label for="cover_image" class="form-label">Immagine progetto</label>
+            <input type="file" class="form-control @error('cover_image') is-invalid  @enderror" name="cover_image" id="cover_image"  value="{{old('cover_image')}}">
+            @error('cover_image')
             <div class="invalid-feedback">
                 {{$message}}
             </div>
